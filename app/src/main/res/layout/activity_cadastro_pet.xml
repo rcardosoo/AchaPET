@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.br.achapet.CadastroPetActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/etNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome PET"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/etRaca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Raça do PET"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/etTipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tipo do PET (Ex. cachorro, gato..)"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/etDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descreva características do PET"
+        android:layout_weight="2"/>
+
+    <EditText
+        android:id="@+id/etIdade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:hint="Idade do PET"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/etPorte"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Porte (Médio, Pequeno ou Grande)"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/etFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="XXX"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/btSalvar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cadastrar"/>
+
+</LinearLayout>

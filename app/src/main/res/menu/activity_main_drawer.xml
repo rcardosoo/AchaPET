@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_addPET"
+            android:title="Novo pet" />
+
+        <item
+            android:id="@+id/nav_listarPETs"
+            android:title="Meus pet's" />
+    </group>
+
+    <item android:title="Ordenar">
+        <menu>
+            <item
+                android:id="@+id/nav_menorIdade"
+                android:title="Menor idade" />
+            <item
+                android:id="@+id/nav_menorPorte"
+                android:title="Menor porte" />
+
+            <item
+                android:id="@+id/nav_maiorPorte"
+                android:title="Maior porte" />
+        </menu>
+    </item>
+
+</menu>
