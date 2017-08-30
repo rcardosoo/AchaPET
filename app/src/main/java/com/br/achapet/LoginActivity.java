@@ -49,15 +49,16 @@ public class LoginActivity extends AppCompatActivity {
             }else if(view.equals(LoginActivity.this.btnLogar)){
                 Usuario logado = dao.login(etLogin.getText().toString(), etSenha.getText().toString());
                 if(logado!=null){
-                    Log.i("TESTE", "VAI CRIAR A INTENT, ADICIONAR O LOGADO E IR PARA A MAIN ACTIVITY");
+                    Log.i("TESTE", "LOGOU "+logado.getNome());
                     Intent it = new Intent();
                     it.putExtra("LOGADO", logado);
-                    startActivity(it);
+                    setResult(RESULT_OK, it);
+
                 }else{
                    //exibe algum popup com erro
                 }
             }
-
+            finish();
         }
     }
 }

@@ -24,12 +24,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ListView animalLv;
     private AnimalDAO dao;
     private AnimalAdapter adapter;
-    private static final int CADASTRO_PET = 1;
+    private static final int CADASTRO_PET = 1, LOGIN = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //==================inicio configurações de menu
         super.onCreate(savedInstanceState);
+
+        if (this.logado == null) {
+            Intent it = new Intent(MainActivity.this, LoginActivity.class);
+            startActivityForResult(it, LOGIN);
+        }
+        //==================inicio configurações de menu
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,8 +60,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //===================fim configurações listview
 
-        Intent it = this.getIntent();
-        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
+//        Intent it = this.getIntent();
+//        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
     }
 
     @Override
@@ -68,6 +74,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Animal a = (Animal) data.getSerializableExtra("ANIMAL");
                 this.dao.insert(a);
                 this.atualizaLista();
+            } else if (requestCode == LOGIN) {
+                Log.i("TESTE", "RESULT LOGIN CHEGOU");
+                Usuario u = (Usuario) data.getSerializableExtra("LOGADO");
+                this.logado = u;
             }
         }
     }
