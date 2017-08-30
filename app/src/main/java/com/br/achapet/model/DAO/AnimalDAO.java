@@ -12,10 +12,6 @@ import com.br.achapet.model.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 public class AnimalDAO {
     private SQLiteDatabase banco;
 

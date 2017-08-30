@@ -2,10 +2,7 @@ package com.br.achapet;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -56,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.animalLv.setAdapter(adapter);
 
         //===================fim configurações listview
+
+        Intent it = this.getIntent();
+        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
     }
 
     @Override
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.nav_addPET) {
             Intent it = new Intent(MainActivity.this, CadastroPetActivity.class);
             //teste
-            this.logado = new Usuario("Rafael", "rafa", "123", "endereco teste", "rafa@teste.com", "88988878");
+            //this.logado = new Usuario("Rafael", "rafa", "123", "endereco teste", "rafa@teste.com", "88988878");
             //teste
             it.putExtra("LOGADO", this.logado);
             startActivityForResult(it, CADASTRO_PET);

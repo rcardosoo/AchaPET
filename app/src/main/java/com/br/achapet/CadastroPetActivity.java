@@ -11,10 +11,7 @@ import android.widget.EditText;
 import com.br.achapet.model.Animal;
 import com.br.achapet.model.Usuario;
 
-import static android.R.attr.data;
-
 public class CadastroPetActivity extends AppCompatActivity {
-    private Animal dao;
     private EditText etNome;
     private EditText etRaca;
     private EditText etTipo;
@@ -24,6 +21,7 @@ public class CadastroPetActivity extends AppCompatActivity {
     private EditText etFoto;
     private Usuario logado;
     private Button btSalvar;
+    private Button btVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +47,7 @@ public class CadastroPetActivity extends AppCompatActivity {
         this.etPorte = (EditText) findViewById(R.id.etPorte);
         this.etFoto = (EditText) findViewById(R.id.etFoto);
         this.btSalvar = (Button) findViewById(R.id.btSalvar);
+        this.btVoltar = (Button) findViewById(R.id.btVoltar);
     }
 
     private void setListeners(){
@@ -59,21 +58,29 @@ public class CadastroPetActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            String nome = etNome.getText().toString();
-            String raca = etNome.getText().toString();
-            String tipo = etNome.getText().toString();
-            String descricao = etNome.getText().toString();
-            int idade = Integer.parseInt(etIdade.getText().toString());
-            String foto = etNome.getText().toString();
-            String porte = etNome.getText().toString();
+            if(view.equals(CadastroPetActivity.this.btSalvar)){
+                String nome = etNome.getText().toString();
+                String raca = etNome.getText().toString();
+                String tipo = etNome.getText().toString();
+                String descricao = etNome.getText().toString();
+                int idade = Integer.parseInt(etIdade.getText().toString());
+                String foto = etNome.getText().toString();
+                String porte = etNome.getText().toString();
 
-            Animal a = new Animal(nome, raca, tipo, descricao, idade, porte, foto, CadastroPetActivity.this.logado);
-            Log.i("TESTE", "Animal criado? "+a.getNome());
-            Log.i("TESTE", "Usuario criado? "+a.getUsuario().getNome());
-            Intent it = new Intent();
-            it.putExtra("ANIMAL", a);
+                Animal a = new Animal(nome, raca, tipo, descricao, idade, porte, foto, CadastroPetActivity.this.logado);
+                Log.i("TESTE", "Animal criado? "+a.getNome());
+                Log.i("TESTE", "Usuario criado? "+a.getUsuario().getNome());
+                Intent it = new Intent();
+                it.putExtra("ANIMAL", a);
 
-            setResult(RESULT_OK, it);
+                setResult(RESULT_OK, it);
+                finish();
+            }else if (view.equals(CadastroPetActivity.this.btVoltar)){
+                Intent it = new Intent();
+                setResult(RESULT_CANCELED, it);
+                finish();
+            }
+
         }
     }
 }

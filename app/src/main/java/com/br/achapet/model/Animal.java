@@ -2,10 +2,6 @@ package com.br.achapet.model;
 
 import java.io.Serializable;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 public class Animal implements Serializable {
     private int codigo;
     private String nome;

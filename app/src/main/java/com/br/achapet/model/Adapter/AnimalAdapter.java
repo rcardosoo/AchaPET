@@ -12,10 +12,6 @@ import com.br.achapet.R;
 import com.br.achapet.model.Animal;
 import com.br.achapet.model.DAO.AnimalDAO;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 public class AnimalAdapter extends BaseAdapter {
     private Context context;
     private AnimalDAO dao;

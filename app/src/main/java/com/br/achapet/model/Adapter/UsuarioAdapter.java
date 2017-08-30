@@ -7,10 +7,6 @@ import android.widget.BaseAdapter;
 
 import com.br.achapet.model.DAO.UsuarioDAO;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 public class UsuarioAdapter extends BaseAdapter {
     private Context context;
     private UsuarioDAO dao;

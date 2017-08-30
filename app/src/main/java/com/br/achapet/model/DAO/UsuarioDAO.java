@@ -1,13 +1,10 @@
 package com.br.achapet.model.DAO;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.br.achapet.Database.BancoHelper;
 import com.br.achapet.model.*;
@@ -93,5 +90,18 @@ public class UsuarioDAO {
     public void delete(Usuario u){
         String[] where = {Integer.toString(u.getCodigo())};
         this.banco.delete(BancoHelper.TABELA_USUARIO, "codigo = ?", where);
+    }
+
+    public Usuario login(String login, String senha){
+        ArrayList<Usuario> usuarios = (ArrayList<Usuario>) this.get();
+        Log.i("TESTE", "CRIOU O ARRAYLIST");
+        for (Usuario u : usuarios){
+            if(u.getLogin().equals(login) && u.getSenha().equals(senha)){
+                Log.i("TESTE", "ACHOU O LOGADO");
+                return u;
+            }
+        }
+        Log.i("TESTE", "NÃO ACHOU O LOGADO E RETORNANDO NULL");
+        return null;
     }
 }

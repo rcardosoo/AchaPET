@@ -3,10 +3,6 @@ package com.br.achapet.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- * Created by Rafael on 30/08/2017.
- */
-
 public class Usuario implements Serializable {
     private int codigo;
     private String nome;
