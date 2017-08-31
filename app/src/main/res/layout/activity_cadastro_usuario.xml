@@ -33,6 +33,7 @@
             android:id="@+id/etUsuarioSenha"
             android:layout_weight="1"
             android:hint="Senha"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

@@ -30,6 +30,7 @@
         <EditText
             android:id="@+id/etLoginSenha"
             android:hint="Senha"
+            android:inputType="textPassword"
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

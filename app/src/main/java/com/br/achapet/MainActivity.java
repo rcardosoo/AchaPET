@@ -13,11 +13,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.br.achapet.model.Adapter.AnimalAdapter;
 import com.br.achapet.model.Animal;
 import com.br.achapet.model.DAO.AnimalDAO;
 import com.br.achapet.model.Usuario;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Usuario logado;
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AnimalDAO dao;
     private AnimalAdapter adapter;
     private static final int CADASTRO_PET = 1, LOGIN = 2;
+    private TextView tvNomeLogado;
+    private TextView tvEmailLogado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -52,11 +58,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //=================== fim configurações de menu
 
-        this.mostraLista();
-
-//        Intent it = this.getIntent();
-//        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
+        mostraLista();
     }
+
 
     public void mostraLista() {
         //===================inicio configurações listview
@@ -84,8 +88,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Usuario u = (Usuario) data.getSerializableExtra("LOGADO");
                 this.logado = u;
                 Log.i("TESTE", "CHEGOU USUARIO LOGADO? "+this.logado.getLogin());
-                this.atualizaLista();
-                this.mostraLista();
             }
         }
     }
@@ -134,9 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_addPET) {
             Intent it = new Intent(MainActivity.this, CadastroPetActivity.class);
-            //teste
-            //this.logado = new Usuario("Rafael", "rafa", "123", "endereco teste", "rafa@teste.com", "88988878");
-            //teste
+
             it.putExtra("LOGADO", this.logado);
             startActivityForResult(it, CADASTRO_PET);
         }

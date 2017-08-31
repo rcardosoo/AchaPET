@@ -60,15 +60,17 @@ public class CadastroPetActivity extends AppCompatActivity {
         public void onClick(View view) {
             if(view.equals(CadastroPetActivity.this.btSalvar)){
                 String nome = etNome.getText().toString();
-                String raca = etNome.getText().toString();
-                String tipo = etNome.getText().toString();
-                String descricao = etNome.getText().toString();
+                String raca = etRaca.getText().toString();
+                String tipo = etTipo.getText().toString();
+                String descricao = etDescricao.getText().toString();
                 int idade = Integer.parseInt(etIdade.getText().toString());
-                String foto = etNome.getText().toString();
-                String porte = etNome.getText().toString();
+                String foto = etFoto.getText().toString();
+                String porte = etPorte.getText().toString();
 
                 Animal a = new Animal(nome, raca, tipo, descricao, idade, porte, foto, CadastroPetActivity.this.logado);
+                Log.i("TESTE", "Usuario dono do pet = "+CadastroPetActivity.this.logado.getLogin());
                 Log.i("TESTE", "Animal criado? "+a.getNome());
+                Log.i("TESTE", "RACAUA "+a.getRaca());
                 Log.i("TESTE", "Usuario criado? "+a.getUsuario().getNome());
                 Intent it = new Intent();
                 it.putExtra("ANIMAL", a);

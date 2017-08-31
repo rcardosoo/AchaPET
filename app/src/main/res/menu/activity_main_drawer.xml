@@ -25,5 +25,12 @@
                 android:title="Maior porte" />
         </menu>
     </item>
+    <item android:title="Conta">
+    <menu>
+        <item
+            android:id="@+id/nav_sair"
+            android:title="Sair" />
+    </menu>
+    </item>
 
 </menu>

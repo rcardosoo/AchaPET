@@ -36,6 +36,7 @@ public class AnimalDAO {
         cv.put("adotado", novo.isAdotado());
         cv.put("codigo_usuario", novo.getUsuario().getCodigo());
         Log.i("TESTE", "VAI INSERIR ANIMAL NO BANCO");
+        Log.i("TESTE", "RACA DELE = "+novo.getRaca());
         this.banco.insert(BancoHelper.TABELA_ANIMAL, null, cv);
         Log.i("TESTE", "INSERIU ANIMAL NO BANCO");
     }
@@ -83,7 +84,9 @@ public class AnimalDAO {
                 Log.i("TESTE", "ADICIONOU NO ARRAY");
             }while(c.moveToNext());
         }
-
+        for (Animal au : lista) {
+            Log.i("TESTE", "ANIMAL - "+au.getNome()+" RAÇA = "+au.getRaca());
+        }
         return lista;
     }
 
