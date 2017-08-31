@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.br.achapet.Database.BancoHelper;
+import com.br.achapet.MainActivity;
 import com.br.achapet.model.*;
 
 import java.util.ArrayList;
@@ -14,10 +15,13 @@ import java.util.List;
 
 public class AnimalDAO {
     private SQLiteDatabase banco;
+    private UsuarioDAO usudao;
 
     public AnimalDAO(Context context){
         Log.i("TESTE", "ENTROU NO CONSTRUTOR DE ANIMALDAO");
         this.banco = new BancoHelper(context).getWritableDatabase();
+        this.usudao = new UsuarioDAO(context);
+        Log.i("TESTE", "INSTANCIOU USUARIO DAO");
     }
 
     public void insert(Animal novo){
@@ -31,8 +35,9 @@ public class AnimalDAO {
         cv.put("foto", novo.getFoto());
         cv.put("adotado", novo.isAdotado());
         cv.put("codigo_usuario", novo.getUsuario().getCodigo());
-
+        Log.i("TESTE", "VAI INSERIR ANIMAL NO BANCO");
         this.banco.insert(BancoHelper.TABELA_ANIMAL, null, cv);
+        Log.i("TESTE", "INSERIU ANIMAL NO BANCO");
     }
 
     public Animal get(int index){
@@ -40,9 +45,11 @@ public class AnimalDAO {
     }
 
     public List<Animal> get(){
+        Log.i("TESTE", "ENTROU NO GET ANIMAIS");
         List<Animal> lista = new ArrayList<Animal>();
         String[] colunas = {"codigo", "nome", "raca", "tipo", "descricao", "idade", "porte", "foto", "adotado", "codigo_usuario"};
         Cursor c = this.banco.query(BancoHelper.TABELA_ANIMAL, colunas, null, null, null, null, null);
+        Log.i("TESTE", "COLOCOU TODOS OS ANIMAIS NO CURSOR");
         Animal a;
 
         if (c.getCount() > 0){
@@ -58,14 +65,22 @@ public class AnimalDAO {
                 a.setPorte(c.getString(c.getColumnIndex("porte")));
                 a.setFoto(c.getString(c.getColumnIndex("foto")));
                 a.setAdotado(c.getInt(c.getColumnIndex("adotado")));
-                UsuarioDAO usuarioDAO = new UsuarioDAO(null);
-                Usuario u = usuarioDAO.getByCodigo(c.getInt(c.getColumnIndex("codigo_usuario")));
+                Log.i("TESTE", "PEGOU OS CAMPOS - MENOS USUARIO");
+
+                int codUsu = c.getInt(c.getColumnIndex("codigo_usuario"));
+                Log.i("TESTE", "VAI GETAR O USUARIO PELO CODIGO = "+codUsu);
+                Usuario u = usudao.getByCodigo(codUsu);
+                Log.i("TESTE", "GETOU O USUARIO");
                 if (u != null) {
+                    Log.i("TESTE", "CONSEGUIU OBTER DONO DO ANIMAL");
                     a.setDono(u);
                 } else {
+                    Log.i("TESTE", "ERRO EM OBTER DONO DO ANIMAL");
                     a.setDono(null);
                 }
+                Log.i("TESTE", "PEGOU UM ANIMAL");
                 lista.add(a);
+                Log.i("TESTE", "ADICIONOU NO ARRAY");
             }while(c.moveToNext());
         }
 

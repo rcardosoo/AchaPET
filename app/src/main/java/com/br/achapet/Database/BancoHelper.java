@@ -3,6 +3,7 @@ package com.br.achapet.Database;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * Created by Rafael on 30/08/2017.
@@ -43,7 +44,9 @@ public class BancoHelper extends SQLiteOpenHelper {
                 "FOREIGN KEY (codigo_usuario) REFERENCES usuario(codigo)" +
                 ");";
         db.execSQL(createTableUsuario);
+        Log.i("TESTE", "CRIOU BD USUARIO");
         db.execSQL(createTableAnimal);
+        Log.i("TESTE", "CRIOU BD ANIMAL");
     }
 
     @Override

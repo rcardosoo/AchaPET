@@ -29,8 +29,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.i("TESTE", "START MAINACTIVTY CREATE");
         if (this.logado == null) {
+            Log.i("TESTE", "ENTRA NO IF LOGIN == NULL MAINACTIVTY");
             Intent it = new Intent(MainActivity.this, LoginActivity.class);
             startActivityForResult(it, LOGIN);
         }
@@ -51,17 +52,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //=================== fim configurações de menu
 
-        //===================inicio configurações listview
+        this.mostraLista();
 
+//        Intent it = this.getIntent();
+//        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
+    }
+
+    public void mostraLista() {
+        //===================inicio configurações listview
+        Log.i("TESTE", "ENTRA CONFIGURAÇÕES DO LISTVIEW MAINACTIVITY");
         this.dao = new AnimalDAO(this);
         this.animalLv = (ListView) findViewById(R.id.LvAnimal);
         this.adapter= new AnimalAdapter(this, this.dao);
         this.animalLv.setAdapter(adapter);
-
+        Log.i("TESTE", "PASSOU DAS CONFS DE LISTVIERW MAINACTIVTY");
         //===================fim configurações listview
-
-//        Intent it = this.getIntent();
-//        this.logado = (Usuario) it.getSerializableExtra("LOGADO");
     }
 
     @Override
@@ -78,6 +83,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Log.i("TESTE", "RESULT LOGIN CHEGOU");
                 Usuario u = (Usuario) data.getSerializableExtra("LOGADO");
                 this.logado = u;
+                Log.i("TESTE", "CHEGOU USUARIO LOGADO? "+this.logado.getLogin());
+                this.atualizaLista();
+                this.mostraLista();
             }
         }
     }
