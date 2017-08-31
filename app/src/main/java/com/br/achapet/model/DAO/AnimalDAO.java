@@ -66,6 +66,7 @@ public class AnimalDAO {
                 a.setPorte(c.getString(c.getColumnIndex("porte")));
                 a.setFoto(c.getString(c.getColumnIndex("foto")));
                 a.setAdotado(c.getInt(c.getColumnIndex("adotado")));
+                Log.i("FUDEU", "NOME DO DITO CUJO/: "+a.getNome()+" ADOTADO? "+a.isAdotado());
                 Log.i("TESTE", "PEGOU OS CAMPOS - MENOS USUARIO");
 
                 int codUsu = c.getInt(c.getColumnIndex("codigo_usuario"));
@@ -80,12 +81,18 @@ public class AnimalDAO {
                     a.setDono(null);
                 }
                 Log.i("TESTE", "PEGOU UM ANIMAL");
-                lista.add(a);
-                Log.i("TESTE", "ADICIONOU NO ARRAY");
+
+                if(a.isAdotado()==0){
+                    //QUANDO CONSTROI O ANIMAL É COLOCADO O "0"(ZERO), QUE QUER DIZER QUE ELE NÃO É ADOTADO
+                    //ANIMAIS QUE TEM 1 NO ADOTADO É QUE FORAM ADOTADOS
+                    //Log.i("TESTE", "ADICIONOU NO ARRAY");
+                    //Log.i("ANIMAL", "Nome: "+a.getNome());
+                    Log.i("FUDEU", "ANTES DO ADD");
+                    lista.add(a);
+                    Log.i("FUDEU", "DEPOIS DO ADD");
+                }
+
             }while(c.moveToNext());
-        }
-        for (Animal au : lista) {
-            Log.i("TESTE", "ANIMAL - "+au.getNome()+" RAÇA = "+au.getRaca());
         }
         return lista;
     }
@@ -118,4 +125,3 @@ public class AnimalDAO {
         this.banco.delete(BancoHelper.TABELA_ANIMAL, "codigo = ?", where);
     }
 }
-

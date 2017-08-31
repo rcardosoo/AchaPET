@@ -25,6 +25,7 @@ public class Animal implements Serializable {
         this.porte = porte;
         this.foto = foto;
         this.usuario = dono;
+        this.adotado = 0;
     }
 
     public String getNome() {
@@ -92,7 +93,7 @@ public class Animal implements Serializable {
     }
 
     public int isAdotado() {
-        return adotado;
+        return this.adotado;
     }
 
     public void setAdotado(int adotado) {

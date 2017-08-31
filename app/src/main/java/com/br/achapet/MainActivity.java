@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -19,8 +21,6 @@ import com.br.achapet.model.Adapter.AnimalAdapter;
 import com.br.achapet.model.Animal;
 import com.br.achapet.model.DAO.AnimalDAO;
 import com.br.achapet.model.Usuario;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private Usuario logado;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         //=================== fim configurações de menu
-
         mostraLista();
     }
 
@@ -69,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         this.animalLv = (ListView) findViewById(R.id.LvAnimal);
         this.adapter= new AnimalAdapter(this, this.dao);
         this.animalLv.setAdapter(adapter);
+        this.animalLv.setOnItemClickListener(new ListaClickListener());
         Log.i("TESTE", "PASSOU DAS CONFS DE LISTVIERW MAINACTIVTY");
         //===================fim configurações listview
     }
@@ -146,4 +146,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-}
+
+    private class ListaClickListener implements AdapterView.OnItemClickListener{
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            Intent it = new Intent(MainActivity.this, DetalhesAnimalActivity.class);
+            Animal a = MainActivity.this.dao.get(i);
+            it.putExtra("ANIMAL", a);
+            startActivity(it);
+        }
+    }
+ }

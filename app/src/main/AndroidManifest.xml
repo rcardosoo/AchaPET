@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".CadastroPetActivity" />
         <activity android:name=".CadastroUsuarioActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".DetalhesAnimalActivity"></activity>
     </application>
 
 </manifest>
