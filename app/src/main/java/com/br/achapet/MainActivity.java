@@ -35,11 +35,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("TESTE", "START MAINACTIVTY CREATE");
-        if (this.logado == null) {
-            Log.i("TESTE", "ENTRA NO IF LOGIN == NULL MAINACTIVTY");
-            Intent it = new Intent(MainActivity.this, LoginActivity.class);
-            startActivityForResult(it, LOGIN);
-        }
+        this.verificaLogado();
         //==================inicio configurações de menu
 
         setContentView(R.layout.activity_main);
@@ -60,8 +56,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mostraLista();
     }
 
+    public void verificaLogado() {
+        if (this.logado == null) {
+            Intent it = new Intent(MainActivity.this, LoginActivity.class);
+            startActivityForResult(it, LOGIN);
+        }
+    }
 
     public void mostraLista() {
+        this.verificaLogado();
         //===================inicio configurações listview
         Log.i("TESTE", "ENTRA CONFIGURAÇÕES DO LISTVIEW MAINACTIVITY");
         this.dao = new AnimalDAO(this);
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void atualizaLista(){
+        this.verificaLogado();
         ((BaseAdapter)this.animalLv.getAdapter()).notifyDataSetChanged();
     }
 

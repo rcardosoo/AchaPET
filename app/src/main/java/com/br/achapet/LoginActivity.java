@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.br.achapet.model.Animal;
 import com.br.achapet.model.DAO.UsuarioDAO;
 import com.br.achapet.model.Usuario;
 
@@ -55,7 +57,11 @@ public class LoginActivity extends AppCompatActivity {
                     setResult(RESULT_OK, it);
 
                 }else{
-                    //exibe algum popup com erro
+                    CharSequence text = "Login ou senha incorretos!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+                    toast.show();
                 }
             }
             finish();

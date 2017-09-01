@@ -1,5 +1,6 @@
 package com.br.achapet;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -59,8 +60,8 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
 
                 Usuario u = new Usuario(nome, login, senha, endereco, email, telefone);
                 dao.insert(u);
-
                 finish();
+
             }else if(view.equals(CadastroUsuarioActivity.this.btnVoltar)){
                 finish();
             }

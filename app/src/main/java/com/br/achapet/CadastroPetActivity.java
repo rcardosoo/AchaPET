@@ -91,7 +91,6 @@ public class CadastroPetActivity extends AppCompatActivity {
                 String porte = etPorte.getText().toString();
 
                 Animal a = new Animal(nome, raca, tipo, descricao, idade, porte, foto, CadastroPetActivity.this.logado);
-
                 Intent it = new Intent();
                 it.putExtra("ANIMAL", a);
 
