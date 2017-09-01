@@ -1,8 +1,10 @@
 package com.br.achapet.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
-public class Animal implements Serializable {
+public class Animal implements Serializable, Comparable {
     private int codigo;
     private String nome;
     private String raca;
@@ -120,5 +122,16 @@ public class Animal implements Serializable {
                 ", foto='" + foto + '\'' +
                 ", usuario=" + usuario +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NonNull Object a) {
+        Animal animal = (Animal) a;
+        if (this.getIdade() < animal.getIdade()) {
+            return -1;
+        } else if (this.getIdade() > animal.getIdade()) {
+            return 1;
+        }
+        return 0;
     }
 }

@@ -8,13 +8,6 @@
 
     </group>
 
-    <item android:title="Ordenar">
-        <menu>
-            <item
-                android:id="@+id/nav_menorIdade"
-                android:title="Menor idade" />
-        </menu>
-    </item>
     <item android:title="Conta">
     <menu>
         <item

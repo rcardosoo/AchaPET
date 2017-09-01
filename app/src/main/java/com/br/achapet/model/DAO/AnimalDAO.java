@@ -11,6 +11,7 @@ import com.br.achapet.MainActivity;
 import com.br.achapet.model.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AnimalDAO {

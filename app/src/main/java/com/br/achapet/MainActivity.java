@@ -139,9 +139,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             it.putExtra("LOGADO", this.logado);
             startActivityForResult(it, CADASTRO_PET);
-        }
-
-        if (id == R.id.nav_sair){
+        } else if (id == R.id.nav_sair){
             logoff();
         }
 
