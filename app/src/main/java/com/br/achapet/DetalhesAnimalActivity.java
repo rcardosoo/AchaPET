@@ -1,7 +1,11 @@
 package com.br.achapet;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -79,6 +83,18 @@ public class DetalhesAnimalActivity extends AppCompatActivity {
                         b.setAdotado(1);
                         dao.update(a, b);
                         finish();
+                    }
+                });
+                builder.setNeutralButton("Ligar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        String telefone = a.getUsuario().getTelefone();
+                        Uri uri = Uri.parse("tel:"+telefone);
+                        Intent it = new Intent(Intent.ACTION_CALL, uri);
+                        int permissao = ActivityCompat.checkSelfPermission(DetalhesAnimalActivity.this, Manifest.permission.CALL_PHONE);
+                        if (permissao == PackageManager.PERMISSION_GRANTED){
+                            startActivity(it);
+                        }
                     }
                 });
                 builder.setNegativeButton("Não", null);

@@ -52,7 +52,7 @@ public class CadastroPetActivity extends AppCompatActivity {
         this.etDescricao = (EditText) findViewById(R.id.etDescricao);
         this.etIdade = (EditText) findViewById(R.id.etIdade);
         this.etPorte = (EditText) findViewById(R.id.etPorte);
-        //this.etFoto = (EditText) findViewById(R.id.etFoto);
+        this.etFoto = (EditText) findViewById(R.id.etFoto);
         this.btSalvar = (Button) findViewById(R.id.btSalvar);
         this.btVoltar = (Button) findViewById(R.id.btVoltar);
         this.btnCapturar = (Button) findViewById(R.id.btnCadastrarAnimalCapturar);
