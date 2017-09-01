@@ -141,11 +141,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             startActivityForResult(it, CADASTRO_PET);
         }
 
+        if (id == R.id.nav_sair){
+            logoff();;
+        }
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
     private class ListaClickListener implements AdapterView.OnItemClickListener{
         @Override
@@ -155,5 +158,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             it.putExtra("ANIMAL", a);
             startActivity(it);
         }
+    }
+
+    public void logoff(){
+        this.logado = null;
+        finish();
     }
  }
