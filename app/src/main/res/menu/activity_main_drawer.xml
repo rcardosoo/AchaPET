@@ -6,9 +6,6 @@
             android:id="@+id/nav_addPET"
             android:title="Novo pet" />
 
-        <item
-            android:id="@+id/nav_listarPETs"
-            android:title="Meus pet's" />
     </group>
 
     <item android:title="Ordenar">
@@ -16,13 +13,6 @@
             <item
                 android:id="@+id/nav_menorIdade"
                 android:title="Menor idade" />
-            <item
-                android:id="@+id/nav_menorPorte"
-                android:title="Menor porte" />
-
-            <item
-                android:id="@+id/nav_maiorPorte"
-                android:title="Maior porte" />
         </menu>
     </item>
     <item android:title="Conta">

@@ -82,6 +82,13 @@ public class DetalhesAnimalActivity extends AppCompatActivity {
                         Animal b = a;
                         b.setAdotado(1);
                         dao.update(a, b);
+                        String email = "mailto: "+a.getUsuario().getEmail();
+
+                        Uri uri = Uri.parse(email);
+                        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+                        it.putExtra(Intent.EXTRA_SUBJECT, "INTERESSE EM ADOÇÃO");
+                        it.putExtra(Intent.EXTRA_TEXT, "Olá, tenho interesse em adotar o "+a.getNome()+", aguardo um retorno!");
+                        startActivity(Intent.createChooser(it, "Enviar e-mail"));
                         finish();
                     }
                 });

@@ -48,13 +48,13 @@ public class AnimalAdapter extends BaseAdapter {
 
         TextView tvNome = (TextView) view.findViewById(R.id.tvNomeAnimal);
         TextView tvRaca = (TextView) view.findViewById(R.id.tvRacaAnimal);
-        TextView tvFoto = (TextView) view.findViewById(R.id.tvFotoAnimal);
+        //TextView tvFoto = (TextView) view.findViewById(R.id.tvFotoAnimal);
 
         Animal a = this.dao.get(position);
 
         tvNome.setText(a.getNome());
         tvRaca.setText(a.getRaca());
-        tvFoto.setText(a.getFoto());
+        //tvFoto.setText(a.getFoto());
 
         view.setMinimumHeight(200);
 

@@ -34,7 +34,7 @@
             <ImageView
                 android:id="@+id/ivAnimaDetalhesFoto"
                 android:layout_weight="6"
-                android:src="@mipmap/ic_launcher"
+                android:src="@drawable/animal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
