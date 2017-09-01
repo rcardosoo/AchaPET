@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
+        android:padding="10dp"
         >
+
 
         <LinearLayout
             android:layout_weight="1"
@@ -24,15 +26,22 @@
             <TextView
                 android:id="@+id/tvAnimalDetalhesNome"
                 android:text="Nome"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/ivAnimaDetalhesFoto"
+                android:layout_weight="6"
+                android:src="@mipmap/ic_launcher"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/tvAnimalDetalhesRaca"
                 android:text="Raça"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -40,7 +49,7 @@
             <TextView
                 android:id="@+id/tvAnimalDetalhesTipo"
                 android:text="Tipo"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -48,7 +57,7 @@
             <TextView
                 android:id="@+id/tvAnimalDetalhesDescricao"
                 android:text="Descrição"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -56,7 +65,7 @@
             <TextView
                 android:id="@+id/tvAnimalDetalhesIdade"
                 android:text="Idade"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -64,36 +73,14 @@
             <TextView
                 android:id="@+id/tvAnimalDetalhesPorte"
                 android:text="Porte"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
 
-            <TextView
-                android:text="Foto:"
-                android:textSize="25sp"
-                android:gravity="bottom"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <ImageView
-                android:id="@+id/ivAnimaDetalhesFoto"
-                android:layout_weight="1"
-                android:src="@mipmap/ic_launcher"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
 
 
         </LinearLayout>
