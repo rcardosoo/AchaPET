@@ -88,10 +88,10 @@ public class AnimalDAO {
                     //Log.i("TESTE", "ADICIONOU NO ARRAY");
                     //Log.i("ANIMAL", "Nome: "+a.getNome());
                     Log.i("FUDEU", "ANTES DO ADD");
-                    lista.add(a);
+
                     Log.i("FUDEU", "DEPOIS DO ADD");
                 }
-
+                lista.add(a);
             }while(c.moveToNext());
         }
         return lista;
