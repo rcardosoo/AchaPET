@@ -60,13 +60,36 @@
             android:hint="Porte (Médio, Pequeno ou Grande)"
             android:layout_weight="1"/>
 
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/ivCadastrarAnimalFoto"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <Button
+                    android:text="Capturar"
+                    android:id="@+id/btnCadastrarAnimalCapturar"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <!--
         <EditText
             android:id="@+id/etFoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="XXX"
             android:layout_weight="1"/>
-
+        -->
     </LinearLayout>
 
     <LinearLayout
